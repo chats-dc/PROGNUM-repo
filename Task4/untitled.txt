@@ -1,0 +1,23 @@
+import scipy.integrate as integ
+from numpy import sin, cos, exp, pi
+
+expression=input("Enter a function with symbols:")
+anum = input("Enter lower bound: ")
+bnum = input("Enter upper bound: ")
+a = eval(anum)
+b = eval(bnum)
+
+if expression is not None: #if it's not empty
+    try:
+        def F(x):
+            y = eval(expression)
+            return y #function
+
+        Area = integ.quad(F, a, b)
+     
+        print("Quad derived area under curve:", Area)
+    except ZeroDivisionError:
+        print("Math Error. There is a zero somewhere")
+    except Exception as e:
+        print(f"Integration failed: {e}")
+        
